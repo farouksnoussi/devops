@@ -17,7 +17,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    build: /root/devops
+    build: /home/farouk/devops
     restart: on-failure
     env_file: ./.env
     ports:
