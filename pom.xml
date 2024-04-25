@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.8</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>tn.esprit.ds</groupId>
     <artifactId>SkiStationProject</artifactId>
@@ -25,10 +25,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
+            <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -47,30 +46,28 @@
             <version>1.6.9</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
-         <plugin>
-             <groupId>org.jacoco</groupId>
-             <artifactId>jacoco-maven-plugin</artifactId>
-             <version>0.8.7</version>
-                  <jacoco.version>0.8.7</jacoco.version>
-             <executions>
-                 <execution>
-                     <goals>
-                         <goal>prepare-agent</goal>
-                     </goals>
-                 </execution>
-                 <execution>
-                     <id>report</id>
-                     <phase>prepare-package</phase>
-                     <goals>
-                         <goal>report</goal>
-                     </goals>
-                 </execution>
-             </executions>
-         </plugin>
-
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -85,16 +82,16 @@
             </plugin>
         </plugins>
     </build>
-<distributionManagement>
-    <snapshotRepository>
-        <id>InternalSnapshots</id>
-        <name>Internal Snapshots</name>
-        <url>http://localhost:8081/repository/maven-snapshots</url>
-    </snapshotRepository>
-    <repository>
-        <id>InternalReleases</id>
-        <name>Internal Releases</name>
-        <url>http://localhost:8081/repository/maven-releases</url>
-    </repository>
-</distributionManagement>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>InternalSnapshots</id>
+            <name>Internal Snapshots</name>
+            <url>http://localhost:8081/repository/maven-snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>InternalReleases</id>
+            <name>Internal Releases</name>
+            <url>http://localhost:8081/repository/maven-releases</url>
+        </repository>
+    </distributionManagement>
 </project>
