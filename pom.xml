@@ -127,7 +127,7 @@
 <name> Nexus Repository </name>
 <url> http://localhost:8081/repository/maven-snapshots/ </url>
 </repository>
-<repositorRy>
+<repositoryRy>
 <id>release</id>
 <name>Internal Releases</name>
 <url>http://localhost:8081/repository/maven-releases/</url>
