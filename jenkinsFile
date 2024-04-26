@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'agent1' }
     stages {
-        stage('Hello') {
+        stage('Hello from jenkins File') {
             steps {
                 echo 'Hello World'
             }
@@ -21,7 +21,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script {
-                    sh 'mvn compile sonar:sonar -Dsonar.host.url=http://172.20.194.249:9000/ -Dsonar.organization=Devops -Dsonar.projectKey=DevopsProject -Dsonar.login=sqp_e31373e7f893599fa776105e3c3f350819816ce2 -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml'
+                    sh 'mvn compile sonar:sonar -Dsonar.host.url=http://172.20.194.249:9000/ -Dsonar.organization=devops -Dsonar.projectKey=devops -Dsonar.login=squ_7495c3b159fec0e907910bd0893b4224fa6aa602 -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml'
                 }
             }
         }
