@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'agent1' }
     stages {
-        stage('Hello from jenkins File') {
+        stage('Hello from Jenkins File') {
             steps {
                 echo 'Hello World'
             }
@@ -14,7 +14,8 @@ pipeline {
         stage('Coverage Test') {
             steps {
                 script {
-                  sh 'mvn clean test -P test jacoco:report'                }
+                    sh 'mvn clean test -P test jacoco:report'
+                }
             }
         }
         stage('SonarQube Analysis') {
@@ -23,6 +24,13 @@ pipeline {
                     sh 'mvn compile sonar:sonar -Dsonar.host.url=http://172.20.194.249:9000/ -Dsonar.organization=devops -Dsonar.projectKey=devops -Dsonar.login=squ_7495c3b159fec0e907910bd0893b4224fa6aa602 -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml'
                 }
             }
+        }
+    }
+    post {
+        success {
+            emailext subject: 'Build Success Notification',
+                      body: 'Your Jenkins build succeeded Farouk . Congratulations!',
+                      to: 'farouksno@gmail.com'
         }
     }
 }
